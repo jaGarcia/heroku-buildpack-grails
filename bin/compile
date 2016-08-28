@@ -180,7 +180,7 @@ echo "-----> Executing $COMPILECMD"
 eval "$COMPILECMD" | sed -u 's/^/       /'
 check_build_status
 
-BUILDCMD="$GRAILS_CMD $BUILDCMD_OPT -Divy.default.ivy.user.dir=$CACHE_DIR war --stacktrace --non-interactive"
+BUILDCMD="$GRAILS_CMD $BUILDCMD_OPT -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=com.sun.org.apache.xerces.internal.parsers.XIncludeAwareParserConfiguration -Divy.default.ivy.user.dir=$CACHE_DIR war --stacktrace --non-interactive"
 echo "-----> Executing $BUILDCMD"
 eval "$BUILDCMD" | sed -u 's/^/       /'
 check_build_status

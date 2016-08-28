@@ -115,7 +115,7 @@ fi
 javaVersion=$(detect_java_version ${BUILD_DIR})
 echo -n "-----> Installing OpenJDK ${javaVersion}..."
 install_java ${BUILD_DIR} ${javaVersion}
-echo -n "-----> Applying jdk-overlay..."
+echo "-----> Applying jdk-overlay..."
 jdk_overlay ${BUILD_DIR}
 ls -al ${BUILD_DIR}/.jdk/jre/lib/endorsed
 echo "done"
@@ -182,7 +182,7 @@ echo "-----> Executing $COMPILECMD"
 eval "$COMPILECMD" | sed -u 's/^/       /'
 check_build_status
 
-BUILDCMD="$GRAILS_CMD $BUILDCMD_OPT -Divy.default.ivy.user.dir=$CACHE_DIR war --stacktrace --non-interactive"
+BUILDCMD="$GRAILS_CMD $BUILDCMD_OPT -Divy.default.ivy.user.dir=$CACHE_DIR war --stacktrace --verbose --non-interactive"
 echo "-----> Executing $BUILDCMD"
 eval "$BUILDCMD" | sed -u 's/^/       /'
 check_build_status

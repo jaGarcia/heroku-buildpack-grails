@@ -115,7 +115,9 @@ fi
 javaVersion=$(detect_java_version ${BUILD_DIR})
 echo -n "-----> Installing OpenJDK ${javaVersion}..."
 install_java ${BUILD_DIR} ${javaVersion}
+echo -n "-----> Applying jdk-overlay..."
 jdk_overlay ${BUILD_DIR}
+ls -al ${BUILD_DIR}/.jdk/jre/lib
 echo "done"
 
 cd $CACHE_DIR

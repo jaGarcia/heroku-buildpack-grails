@@ -117,7 +117,7 @@ echo -n "-----> Installing OpenJDK ${javaVersion}..."
 install_java ${BUILD_DIR} ${javaVersion}
 echo -n "-----> Applying jdk-overlay..."
 jdk_overlay ${BUILD_DIR}
-ls -al ${BUILD_DIR}/.jdk/jre/lib
+ls -al ${BUILD_DIR}/.jdk/jre/lib/endorsed
 echo "done"
 
 cd $CACHE_DIR

@@ -182,7 +182,7 @@ echo "-----> Executing $COMPILECMD"
 eval "$COMPILECMD" | sed -u 's/^/       /'
 check_build_status
 
-BUILDCMD="$GRAILS_CMD $BUILDCMD_OPT -Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl -Djaxp.debug=1 -Divy.default.ivy.user.dir=$CACHE_DIR war --stacktrace --verbose --non-interactive"
+BUILDCMD="$GRAILS_CMD $BUILDCMD_OPT -Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl -Djaxp.debug=1 -Divy.default.ivy.user.dir=$CACHE_DIR war --stacktrace --non-interactive"
 echo "-----> Executing $BUILDCMD"
 eval "$BUILDCMD" | sed -u 's/^/       /'
 check_build_status

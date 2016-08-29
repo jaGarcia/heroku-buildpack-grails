@@ -177,12 +177,12 @@ if [ "$GRAILS_VERSION" != "1.3.7" ] ; then
   BUILDCMD_OPT="$BUILDCMD_OPT -plain-output"
 fi
 
-COMPILECMD="$GRAILS_CMD -Divy.default.ivy.user.dir=$CACHE_DIR compile --non-interactive"
+COMPILECMD="$GRAILS_CMD -Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl -Divy.default.ivy.user.dir=$CACHE_DIR compile --non-interactive"
 echo "-----> Executing $COMPILECMD"
 eval "$COMPILECMD" | sed -u 's/^/       /'
 check_build_status
 
-BUILDCMD="$GRAILS_CMD $BUILDCMD_OPT -Djaxp.debug=1 -Divy.default.ivy.user.dir=$CACHE_DIR war --stacktrace --verbose --non-interactive"
+BUILDCMD="$GRAILS_CMD $BUILDCMD_OPT -Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl -Djaxp.debug=1 -Divy.default.ivy.user.dir=$CACHE_DIR war --stacktrace --verbose --non-interactive"
 echo "-----> Executing $BUILDCMD"
 eval "$BUILDCMD" | sed -u 's/^/       /'
 check_build_status
